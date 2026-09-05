@@ -98,13 +98,15 @@ FLOWRA_CREATE_OR_UPDATE_AGENT
 
 ## Run
 
+`FLOWRA_EXECUTE_WORKFLOW` is **static only**. It fails if the id is an agent. Chat with an agent in the dashboard, the widget, or Threads/Graphify.
+
 ```
 FLOWRA_EXECUTE_WORKFLOW
-{ "workflowId": "<id>", "testMode": true, "input": { } }
+{ "workflowId": "<static id>", "testMode": true, "input": { } }
 ```
 
 - Static: `testMode` default **true** (mock). Production: `testMode: false` (needs connections).
-- Agent: **always live**, bills credits; `testMode` is ignored.
+- Create uses `runTest` (mock on save). Execute uses `testMode`. Do not mix the names.
 - Self-invocation (same id as the caller) is blocked.
 - Status `paused`: give the user `pauseMessage`. Resume — do not re-execute:
 

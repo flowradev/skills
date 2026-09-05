@@ -163,19 +163,9 @@ FLOWRA_CREATE_OR_UPDATE_AGENT
 
 Replace `GMAIL_SEND_EMAIL` if DISCOVER returned a different send slug. Pin ACTION slugs only.
 
-Paste `embedScript` from the response (see [embed.md](embed.md)).
+Paste `embedScript` from the response (see [embed.md](embed.md)). Show `viewFlowUrl`.
 
-**4. Run** (agents are always live; `testMode` is ignored)
-
-```
-FLOWRA_EXECUTE_WORKFLOW
-{
-  "workflowId": "<agentId>",
-  "input": { "message": "I need a refund status" }
-}
-```
-
-Paused → `FLOWRA_RESUME_WORKFLOW` with `threadId`.
+**4. Run** — agents are live in dashboard chat, the widget, or Threads/Graphify. Do **not** call `FLOWRA_EXECUTE_WORKFLOW` on an agent id (static only; it fails). If a later static run (or an agent HITL that returns `paused` with a `threadId`) needs approval: `FLOWRA_RESUME_WORKFLOW` with that `threadId`.
 
 ---
 
