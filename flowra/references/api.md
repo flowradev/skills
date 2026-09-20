@@ -6,10 +6,10 @@ Docs: [authentication](https://docs.flowra.dev/authentication) · [projects and 
 
 | Header | Role |
 |---|---|
-| `x-api-key` | Project API key. Required for the public API and MCP. |
+| `x-api-key` | Project API key. Required for the public API. MCP runtime also accepts OAuth (URL only). |
 | `x-username` | External user to act as. Created if missing. Shows up under External users. |
 
-Get a key from **Dashboard → Project settings → API Keys**. Store it as `FLOWRA_API_KEY`. Same headers on MCP.
+Get a key from **Dashboard → Project settings → API Keys**. Store it as `FLOWRA_API_KEY`. MCP clients: prefer OAuth (no headers). CLI: `flowra login` uses the same sign-in. API-key MCP still uses these headers.
 
 JWT Bearer is for the dashboard session, not app backends.
 

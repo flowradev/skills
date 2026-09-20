@@ -14,11 +14,11 @@ This repo is for **coding agents**. From your backend, use the [SDK](https://git
 
 ## After install
 
-1. Create a project at [flowra.dev](https://flowra.dev) → Project settings → API Keys.
-2. Connect [MCP](https://docs.flowra.dev) ([builder pins](./flowra/references/mcp.md)). No MCP? Use the [CLI](./flowra/references/cli.md).
+1. Add `https://mcp.flowra.dev/mcp` in Cursor / Claude with no headers (OAuth). Sign in and pick a project. API key is only for CI or clients without OAuth — [MCP](./flowra/references/mcp.md).
+2. Install this skill if the client did not already. No MCP? Use the [CLI](./flowra/references/cli.md).
 3. Ask the agent to do the job.
 
-Do not commit the API key.
+Do not commit an API key.
 
 ## `flowra`
 

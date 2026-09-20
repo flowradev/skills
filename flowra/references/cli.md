@@ -6,11 +6,11 @@ Install from the repo: `pnpm --dir sdks/cli install && pnpm --dir sdks/cli build
 
 ## Auth
 
-Project API key (Dashboard → Project settings → API Keys). Never print it.
+`flowra login` opens the same Flowra sign-in as MCP. Never print tokens.
 
 ```bash
-flowra login --no-wait          # JSON dashboardUrl — share with the user
-flowra login --key <paste>      # writes ~/.flowra/config.json (0600)
+flowra login                    # browser OAuth — pick a project
+flowra login --key <paste>      # API key instead (CI)
 flowra whoami                   # verify; FLOWRA_API_KEY overrides the file
 ```
 

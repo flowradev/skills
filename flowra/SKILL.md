@@ -60,7 +60,7 @@ Same steps every run → workflow. Next tool depends on the message → agent. A
 
 **Explain.** Answer from this skill plus current docs. Do not create workflows, agents, or connections.
 
-**Set up.** Ask for a project API key (Dashboard → Project settings → API Keys). Connect MCP with builder pins, or `flowra login` / `FLOWRA_API_KEY` for the CLI/SDK. Verify with one safe DISCOVER: `FLOWRA_DISCOVER_TOOLS` if MCP is connected, else `flowra whoami` then `flowra discover`. Do not print the key.
+**Set up.** For Cursor / Claude, add `https://mcp.flowra.dev/mcp` with no headers (OAuth). The client opens Flowra sign-in; the user picks a project. CLI uses the same sign-in: `flowra login`. For CI or clients without OAuth, ask for a project API key (Dashboard → Project settings → API Keys) / `FLOWRA_API_KEY`. Verify with one safe DISCOVER: `FLOWRA_DISCOVER_TOOLS` if MCP is connected, else `flowra whoami` then `flowra discover`. Do not print the key.
 
 **Operate** (one-shot on a Flowra project):
 
@@ -96,7 +96,7 @@ Copy the closest calls in [examples.md](references/examples.md). Cron lives on `
 ## Hard rules
 
 1. Never invent a tool slug. `FLOWRA_DISCOVER_TOOLS` first; run catalog tools only via `FLOWRA_MULTI_EXECUTE_TOOL` (`tools[].toolSlug`). Catalog ACTION slugs are not MCP tool names.
-2. Secrets stay out of source. `x-api-key` + optional `x-username` (`project_default_user` default — never a project UUID).
+2. Secrets stay out of source. Prefer MCP OAuth (URL only, no headers). Otherwise `x-api-key` + optional `x-username` (`project_default_user` default — never a project UUID).
 3. Pause before send/delete/pay: workflow `human_wait` (including cron); agent `capabilities.humanApproval`.
 4. `paused` → `FLOWRA_RESUME_WORKFLOW` with `threadId`. Do not execute from the start.
 5. Do not `pip install flowra` (unrelated PyPI). Confirm SDK install on https://docs.flowra.dev/guides/sdk

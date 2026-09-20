@@ -14,13 +14,17 @@ https://mcp.flowra.dev/mcp
 
 Client pages with copy-paste config: [flowra.dev/agents](https://flowra.dev/agents).
 
-Named servers still work:
+Named servers still work on the same host:
 
 ```
-https://flowra.dev/api/v1/mcp/{serverId}
+https://mcp.flowra.dev/mcp/{serverId}
 ```
 
-GET = SSE. POST = JSON-RPC. Headers:
+GET = SSE. POST = JSON-RPC.
+
+**OAuth (preferred for Cursor / Claude):** add the URL with no headers. The client opens Flowra sign-in (Google, GitHub, or email), you pick a project, then it uses a Bearer token.
+
+**API key (CI / clients without OAuth):**
 
 ```http
 x-api-key: <project-api-key>
@@ -59,7 +63,7 @@ MCP blocks `FLOWRA_DELETE_WORKFLOW` and `FLOWRA_DELETE_SKILL`. Other deletes: `c
 
 ## Client configs
 
-Same URL + headers. Do not commit live keys.
+OAuth (preferred): same URL, no headers. Do not commit live keys.
 
 ### Cursor
 
@@ -67,79 +71,26 @@ Same URL + headers. Do not commit live keys.
 {
   "mcpServers": {
     "flowra": {
-      "url": "https://flowra.dev/api/v1/mcp/SERVER_ID",
-      "transport": "http",
-      "headers": {
-        "x-api-key": "<your-project-api-key>",
-        "x-username": "project_default_user"
-      }
+      "url": "https://mcp.flowra.dev/mcp",
+      "transport": "http"
     }
   }
 }
 ```
+
+API key (CI / clients without OAuth): add `headers.x-api-key` and `headers.x-username`.
 
 ### Claude Code
 
-```json
-{
-  "mcp_servers": {
-    "flowra": {
-      "url": "https://flowra.dev/api/v1/mcp/SERVER_ID",
-      "transport": "http",
-      "headers": {
-        "x-api-key": "<your-project-api-key>",
-        "x-username": "project_default_user"
-      }
-    }
-  }
-}
+```bash
+claude mcp add --transport http flowra https://mcp.flowra.dev/mcp
 ```
 
-### Windsurf
+### Windsurf / OpenClaw / Hermes
 
-```json
-{
-  "mcp": {
-    "servers": {
-      "flowra": {
-        "url": "https://flowra.dev/api/v1/mcp/SERVER_ID",
-        "transport": "http",
-        "headers": {
-          "x-api-key": "<your-project-api-key>",
-          "x-username": "project_default_user"
-        }
-      }
-    }
-  }
-}
-```
+Same hosted URL, no headers. Copy the client snippet from **Dashboard → MCP → Install & Config → Sign in (OAuth)**.
 
-### OpenClaw
-
-Put the same HTTP MCP server in `~/.openclaw/openclaw.json` (or `openclaw mcp add`):
-
-```json
-{
-  "mcp": {
-    "servers": {
-      "flowra": {
-        "url": "https://flowra.dev/api/v1/mcp/SERVER_ID",
-        "transport": "http",
-        "headers": {
-          "x-api-key": "<your-project-api-key>",
-          "x-username": "project_default_user"
-        }
-      }
-    }
-  }
-}
-```
-
-Install this skill so the agent follows the builder sequence: `npx skills add flowradev/sdk --skill flowra`.
-
-### Hermes
-
-Point Hermes at the same URL/headers (Hub / `config.yaml` MCP section, or Dashboard → MCP → Install). Install this skill into `~/.hermes/skills/`.
+Install this skill so the agent follows the builder sequence: `npx skills add flowradev/skills --skill flowra`. Hermes: copy this skill into `~/.hermes/skills/`.
 
 ## Flowra calling someone else's MCP
 
