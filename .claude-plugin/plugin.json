@@ -1,0 +1,24 @@
+{
+  "name": "flowra",
+  "version": "0.2.0",
+  "description": "Hosted AI agents and approval-gated workflows on Gmail, Slack, GitHub, Notion and 1,000+ apps via Flowra's remote MCP server.",
+  "author": {
+    "name": "Flowra",
+    "url": "https://flowra.dev"
+  },
+  "homepage": "https://docs.flowra.dev/guides/mcp",
+  "repository": "https://github.com/flowradev/skills",
+  "license": "MIT",
+  "keywords": [
+    "flowra",
+    "mcp",
+    "ai-agents",
+    "workflow-automation",
+    "oauth",
+    "human-in-the-loop",
+    "integrations"
+  ],
+  "skills": "./skills/",
+  "commands": "./commands/",
+  "mcpServers": "./.mcp.json"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "build-agent-widget",
+  "skill": "flowra",
+  "query": "Support agent on my site. It can search knowledge and email the customer, but ask me before sending.",
+  "expected_behavior": [
+    "Use FLOWRA_CREATE_OR_UPDATE_AGENT via MULTI_EXECUTE, not a static workflow graph.",
+    "createEmbedWidget true because they asked for the site. Show embedScript and viewFlowUrl.",
+    "Pin only ACTION slugs from DISCOVER. Enable capabilities.humanApproval on the send slug.",
+    "Agent testMode true on FLOWRA_EXECUTE_WORKFLOW is a dry-run (no LLM, no credits). testMode false is billed and needs an explicit yes.",
+    "Do not put session inside the CREATE_OR_UPDATE_AGENT arguments."
+  ]
+}

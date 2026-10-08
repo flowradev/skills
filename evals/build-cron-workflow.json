@@ -1,0 +1,13 @@
+{
+  "id": "build-cron-workflow",
+  "skill": "flowra",
+  "query": "Every weekday at 9:00 UTC, post a Slack recap of my Gmail inbox. Ask me before posting.",
+  "expected_behavior": [
+    "Treat this as Build, not Operate. Discover app slugs plus FLOWRA_CREATE_OR_UPDATE_WORKFLOW.",
+    "Builder slugs run only inside FLOWRA_MULTI_EXECUTE_TOOL; do not emit FLOWRA_CREATE_OR_UPDATE_WORKFLOW as a tool name.",
+    "Put the schedule on workflow.trigger (cron), not FLOWRA_MANAGE_TRIGGER.",
+    "Insert a human_wait node before the Slack send. llm_agent nodes that feed the send need outputSchema and mappings like rank.text.",
+    "Save with runTest true. Test with FLOWRA_EXECUTE_WORKFLOW testMode true and allowExecuteWhenInactive false. In testMode, do not ask the user to approve human_wait.",
+    "Production testMode false only after the user agrees. Show viewFlowUrl."
+  ]
+}

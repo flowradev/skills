@@ -1,0 +1,30 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.flowradev/mcp",
+  "title": "Flowra",
+  "description": "Hosted AI agents and approval-gated workflows on Gmail, Slack, GitHub and 1,000+ apps via OAuth.",
+  "version": "1.0.1",
+  "websiteUrl": "https://flowra.dev/mcp",
+  "repository": {
+    "url": "https://github.com/flowradev/skills",
+    "source": "github"
+  },
+  "icons": [
+    {
+      "src": "https://flowra.dev/icons/logo.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": ["any"]
+    },
+    {
+      "src": "https://flowra.dev/icons/logo-192x192.png",
+      "mimeType": "image/png",
+      "sizes": ["192x192"]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.flowra.dev/mcp"
+    }
+  ]
+}

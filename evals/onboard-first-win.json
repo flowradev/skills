@@ -1,0 +1,11 @@
+{
+  "id": "onboard-first-win",
+  "skill": "flowra-onboard",
+  "query": "Set me up with Flowra in Cursor and prove it works.",
+  "expected_behavior": [
+    "Use flowra-onboard, not flowra. Diagnose Healthy / Fresh install / Auth broken / Not connected.",
+    "Point at Settings → Tools & MCP → Connect next to flowra. URL https://mcp.flowra.dev/mcp with no headers.",
+    "First win is DISCOVER plus one read-only execute (list/search). Do not send email or CREATE_OR_UPDATE_WORKFLOW.",
+    "If initiated, show one link and stop. After tools are healthy, hand further jobs to the flowra skill."
+  ]
+}

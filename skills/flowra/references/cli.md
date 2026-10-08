@@ -1,8 +1,15 @@
 # CLI
 
-Terminal door when MCP is not connected (Hermes, Codex CLI, scripts). Cursor / OpenClaw should still prefer [mcp.md](mcp.md).
+Terminal door when MCP is not connected (Hermes, Codex CLI, scripts). Cursor / OpenClaw should still prefer [mcp.md](mcp.md). The CLI can Operate (discover → connect → execute). It cannot Build workflows or agents.
 
-Install from the repo: `pnpm --dir sdks/cli install && pnpm --dir sdks/cli build && (cd sdks/cli && npm link)`. Then `flowra` is on PATH. Do not `pip install flowra`.
+```bash
+npm i -g @flowra/cli
+# or: pnpm add -g @flowra/cli
+```
+
+From the public SDK repo (optional): `pnpm --dir cli install && pnpm --dir cli build && (cd cli && npm link)`.
+
+Never `pip install flowra` (unrelated PyPI package). Python SDK: `pip install flowra-sdk`.
 
 ## Auth
 
@@ -18,7 +25,7 @@ flowra whoami                   # verify; FLOWRA_API_KEY overrides the file
 
 ## Operate
 
-Same sequence as MCP. Never invent slugs. Do not pipe `discover` through `head`.
+Same sequence as MCP. Never invent slugs. Do not pipe `discover` through `head`. Writes still need an explicit yes in chat.
 
 ```bash
 flowra discover "Gmail list recent inbox emails"

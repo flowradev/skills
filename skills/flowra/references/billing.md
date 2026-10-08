@@ -1,10 +1,8 @@
 # Credits and usage
 
-Docs and plan limits change. Read the live pricing page / dashboard; do not invent plan prices or quotas.
+Docs and plan limits change. Read the live pricing page / dashboard `usage` payload; do not invent plan prices, quotas, or credit-to-dollar ratios.
 
-Flowra bills in **credits**. Credits spend on model tokens, tool executions, sandbox, browser, media, and workflow overhead. They refresh with the plan. Free tier includes a monthly credit grant with no card.
-
-Rough economics (order of magnitude only): about `10_000` credits ≈ `$1` of upstream vendor cost before plan markup on AI. Always prefer the `usage` payload over this sentence.
+Flowra bills in **credits**. Credits spend on model tokens, tool executions, sandbox, browser, media, and workflow overhead. They refresh with the plan. The public site currently lists a free monthly credit grant with no card — confirm the live number on https://flowra.dev before quoting it.
 
 ## After a chat turn
 
@@ -24,7 +22,7 @@ Breakdown keys you may see: `ai_model`, `tool`, `sandbox`, `browser`, `workflow`
 
 ## After a workflow run
 
-Native `FLOWRA_EXECUTE_WORKFLOW` returns status / `threadId` / usage when finished. SDK `POST .../workflow/manager/execute/{id}` returns `executionId`; `usage` is null while running.
+`FLOWRA_EXECUTE_WORKFLOW` (via MULTI_EXECUTE) returns status / `threadId` / usage when finished. SDK `POST .../workflow/manager/execute/{id}` returns `executionId`; `usage` is null while running.
 
 ```ts
 const status = await flowra.workflows.status(threadId);

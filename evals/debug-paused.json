@@ -1,0 +1,11 @@
+{
+  "id": "debug-paused",
+  "skill": "flowra",
+  "query": "This Flowra run is paused — show the ledger and resume it.",
+  "expected_behavior": [
+    "paused is not failure. Do not call FLOWRA_EXECUTE_WORKFLOW again from the start.",
+    "Load the run with FLOWRA_GET_WORKFLOW_EXECUTION (executionId or threadId) via MULTI_EXECUTE. Do not use FLOWRA_GET_WORKFLOW_OR_AGENT_BY_ID to debug a run.",
+    "If an action failed, call FLOWRA_GET_TOOL_EXECUTION_LOGS.",
+    "Show pauseMessage and the payload. Resume with FLOWRA_RESUME_WORKFLOW and the same threadId only after the user approves or rejects."
+  ]
+}

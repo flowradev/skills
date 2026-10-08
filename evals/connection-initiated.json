@@ -1,0 +1,12 @@
+{
+  "id": "connection-initiated",
+  "skill": "flowra",
+  "query": "Connect Slack on Flowra so I can post later.",
+  "expected_behavior": [
+    "DISCOVER first, then FLOWRA_MANAGE_CONNECTIONS with mode connect and reinitiateAll false.",
+    "On status initiated: show the one redirectUrl as a markdown link and end the turn. Do not call MANAGE_CONNECTIONS again until the user says they finished.",
+    "Verify later with mode status so a second OAuth link is not minted.",
+    "Show connection labels, never connection UUIDs.",
+    "Do not post a Slack message in this turn."
+  ]
+}

@@ -1,16 +1,18 @@
 # SDK (door two)
 
-Prefer MCP builder tools ([mcp.md](mcp.md)) when OpenClaw/Hermes/Cursor is talking to Flowra. Use the CLI ([cli.md](cli.md)) when the agent can only run shell commands. Use the SDK inside **your** backend.
+Prefer MCP ([mcp.md](mcp.md)) when OpenClaw/Hermes/Cursor is talking to Flowra. Use the CLI ([cli.md](cli.md)) when the agent can only run shell commands. Use the SDK inside **your** backend.
 
 Docs: [guides/sdk](https://docs.flowra.dev/guides/sdk)
 
-Confirm install commands on that page. Do not assume a package is on a registry.
+| Package | Install | Import |
+|---|---|---|
+| TypeScript | `npm install @flowra/sdk` | `import { Flowra } from '@flowra/sdk'` |
+| Python | `pip install flowra-sdk` | `from flowra import Flowra` |
+| CLI | `npm i -g @flowra/cli` | `flowra` |
+
+Never `pip install flowra` — that PyPI name is an unrelated package.
 
 ## TypeScript
-
-```bash
-npm install @flowra/sdk
-```
 
 ```ts
 import { Flowra, extractStreamUsage, parseSseChunk } from '@flowra/sdk';
@@ -33,10 +35,6 @@ Act as an end user: `flowra.asUser('customer_42')`.
 Every public API-key operation is on the `Flowra` facade. Generated names remain on `flowra.raw`.
 
 ## Python
-
-Official facade lives in the Flowra SDK tree (`from flowra import Flowra`). Method names are snake_case mirrors of TypeScript (`create_link`, `run_ephemeral`, `for_execution`).
-
-**Do not `pip install flowra` from PyPI** — that name is an unrelated package.
 
 ```python
 import os

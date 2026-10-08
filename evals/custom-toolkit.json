@@ -1,0 +1,12 @@
+{
+  "id": "custom-toolkit",
+  "skill": "flowra",
+  "query": "Our billing API is not in the catalog. Register GET https://api.example.com/v1/invoices/{id} with an API key and call it for invoice 99.",
+  "expected_behavior": [
+    "DISCOVER first. If a billing/invoices toolkit already exists, stop and use it.",
+    "Mint FLOWRA_CREATE_OR_UPDATE_TOOLKIT then FLOWRA_CREATE_OR_UPDATE_TOOL only when the catalog has no app. Run those slugs via MULTI_EXECUTE.",
+    "Auth is XOR: API key via static_secret, not noAuth true mixed with authSchemes.",
+    "Connect the new toolkit (requires_parameters → specifyCustomAuth). Then execute the new tool slug via MULTI_EXECUTE.",
+    "Do not claim the toolkit is in the global 1,000+ catalog."
+  ]
+}

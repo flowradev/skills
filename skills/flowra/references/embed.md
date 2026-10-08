@@ -4,7 +4,7 @@ Docs: [widgets and embeds](https://docs.flowra.dev/product/widgets-and-embeds)
 
 Use a widget when the job is “put this agent on my website.” Do not build a custom chat UI unless they ask.
 
-Preferred: `FLOWRA_CREATE_OR_UPDATE_AGENT` with `createEmbedWidget: true`, then paste `embedScript` from the response (see [examples.md](examples.md) job 2).
+Preferred: `FLOWRA_CREATE_OR_UPDATE_AGENT` (via MULTI_EXECUTE) with `createEmbedWidget: true`, then paste `embedScript` from the response (see [examples.md](examples.md) job 2).
 
 Dashboard → Workflows → Widgets still works (origin allowlist + throttle). Snippet shape:
 

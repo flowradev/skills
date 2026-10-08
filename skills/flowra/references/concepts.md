@@ -1,18 +1,13 @@
 # Concepts
 
-Promise: **Describe the job. Then it runs.**  
-Thesis: Chat builds it. Harness guards it. Ledger proves it.
-
-**Registry vs local script:** if the work needs a real Gmail/Slack account, a schedule, a human pause, multiple end users, or a ledger, put it in Flowra. Do not keep OAuth and cron on the laptop.
-
-Funnel: **Say → Wire → Run**.
+If the work needs a real Gmail/Slack account, a schedule, a human pause, multiple end users, or a ledger, put it in Flowra. Do not keep OAuth and cron on the laptop.
 
 ## Agent vs workflow
 
 | | Workflow (`static`) | Agent (`agent`) |
 |--|--|--|
 | Path | Locked graph | Branches on the message |
-| Native tool | `FLOWRA_CREATE_OR_UPDATE_WORKFLOW` | `FLOWRA_CREATE_OR_UPDATE_AGENT` |
+| Slug (via MULTI_EXECUTE) | `FLOWRA_CREATE_OR_UPDATE_WORKFLOW` | `FLOWRA_CREATE_OR_UPDATE_AGENT` |
 | AI | Only where you place `llm_agent` | Chooses the next tool |
 | Best for | Known repeating jobs | Jobs that change shape |
 | Ledger | Shared | Shared |
