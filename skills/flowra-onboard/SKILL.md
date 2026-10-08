@@ -13,6 +13,14 @@ metadata:
   author: Flowra
   version: "0.2.0"
   homepage: https://flowra.dev
+  hermes:
+    category: automation
+    tags:
+      - flowra
+      - mcp
+      - oauth
+      - onboarding
+      - setup
 ---
 
 # Flowra onboard

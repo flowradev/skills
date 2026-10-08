@@ -19,7 +19,14 @@ metadata:
   homepage: https://flowra.dev
   hermes:
     category: automation
-    tags: flowra, toolkit, mcp, automation, oauth, workflow, agent
+    tags:
+      - flowra
+      - toolkit
+      - mcp
+      - automation
+      - oauth
+      - workflow
+      - agent
 ---
 
 # Flowra

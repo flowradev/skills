@@ -19,3 +19,4 @@ Marketplace packaging, a pass against the live default MCP server, and discovery
 - Debug with `FLOWRA_GET_WORKFLOW_EXECUTION` and `FLOWRA_GET_TOOL_EXECUTION_LOGS`. Document workbench / bash, inventory DISCOVER, `mode: "status"`, and session placement.
 - Fix CLI install (`npm i -g @flowra/cli`) and Python (`pip install flowra-sdk`).
 - Stop claiming MCP blocks deletes, inventing a credit-to-dollar ratio, or using guessed action slugs in examples.
+- Hermes `metadata.hermes.tags` is a YAML list (`category` stays a string). `flowra-onboard` uses the same block.
