@@ -4,6 +4,7 @@
 
 Marketplace packaging, a pass against the live default MCP server, and discovery files for skills.sh / Claude / Codex / the official MCP Registry.
 
+- Add Claude marketplace (`.claude-plugin/marketplace.json`), Codex marketplace (`.agents/plugins/marketplace.json`), and `gemini-extension.json`.
 - Add `skills/flowra-onboard`, `/flowra-setup` and `/flowra-status` commands, and `evals/` scenarios (operate confirm, cron, agent widget, paused, initiated, custom toolkit, first win).
 - Package as a Cursor plugin: `.cursor-plugin/plugin.json`, `mcp.json`, `assets/logo.svg`, `LICENSE`, and `rules/flowra-safety.mdc`.
 - Add `.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`, `.mcp.json`, `server.json`, and repo `llms.txt`.

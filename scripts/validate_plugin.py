@@ -176,6 +176,26 @@ def main() -> int:
         if len(server.get("description") or "") > 100:
             fail("server.json description exceeds 100 characters")
 
+    claude_market = load_json(".claude-plugin/marketplace.json")
+    if claude_market:
+        plugins = claude_market.get("plugins") or []
+        if claude_market.get("name") != "flowra":
+            fail("claude marketplace.json.name must be flowra")
+        if not plugins or plugins[0].get("source") != ".":
+            fail("claude marketplace plugin source must be . (repo root)")
+
+    gemini = load_json("gemini-extension.json")
+    if gemini:
+        http_url = (gemini.get("mcpServers") or {}).get("flowra", {}).get("httpUrl")
+        if http_url != "https://mcp.flowra.dev/mcp":
+            fail("gemini-extension.json flowra.httpUrl must be https://mcp.flowra.dev/mcp")
+
+    agents_market = load_json(".agents/plugins/marketplace.json")
+    if agents_market:
+        plugins = agents_market.get("plugins") or []
+        if not plugins or (plugins[0].get("source") or {}).get("path") != ".":
+            fail("codex marketplace plugin source.path must be . (repo root)")
+
     for rel in (
         "LICENSE",
         "README.md",
@@ -190,7 +210,10 @@ def main() -> int:
         "commands/flowra-setup.md",
         "commands/flowra-status.md",
         ".claude-plugin/plugin.json",
+        ".claude-plugin/marketplace.json",
         ".codex-plugin/plugin.json",
+        ".agents/plugins/marketplace.json",
+        "gemini-extension.json",
     ):
         if not (ROOT / rel).is_file():
             fail(f"missing {rel}")

@@ -17,8 +17,9 @@ metadata:
   author: Flowra
   version: "0.2.0"
   homepage: https://flowra.dev
-  hermes-category: automation
-  hermes-tags: flowra, toolkit, mcp, automation, oauth, workflow, agent
+  hermes:
+    category: automation
+    tags: flowra, toolkit, mcp, automation, oauth, workflow, agent
 ---
 
 # Flowra

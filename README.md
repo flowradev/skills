@@ -43,7 +43,9 @@ https://mcp.flowra.dev/mcp
 | Client | How |
 |---|---|
 | Cursor | Settings → Tools & MCP → **Connect** next to `flowra` (or install the Flowra plugin) |
-| Claude Code | `claude mcp add --transport http flowra https://mcp.flowra.dev/mcp` |
+| Claude Code | `/plugin marketplace add flowradev/skills` then `/plugin install flowra@flowra` — or `claude mcp add --transport http flowra https://mcp.flowra.dev/mcp` |
+| Codex | Marketplace at `.agents/plugins/marketplace.json` |
+| Gemini CLI | `gemini extensions install https://github.com/flowradev/skills` (needs release `v0.2.0`) |
 | VS Code / Copilot | `@mcp` in Extensions, or add the URL to `.vscode/mcp.json` |
 | Skill only | `npx skills add flowradev/skills --skill flowra` |
 | CI / no OAuth | Project API key in your own config — never in this repo |
@@ -109,7 +111,10 @@ Then run Developer: Reload Window.
 ```text
 .cursor-plugin/plugin.json
 .claude-plugin/plugin.json
+.claude-plugin/marketplace.json
 .codex-plugin/plugin.json
+.agents/plugins/marketplace.json
+gemini-extension.json
 mcp.json
 .mcp.json
 server.json

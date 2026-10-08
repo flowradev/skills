@@ -1,0 +1,11 @@
+{
+  "name": "flowra",
+  "version": "0.2.0",
+  "description": "Hosted AI agents and approval-gated workflows on Gmail, Slack, GitHub, Notion and 1,000+ apps via Flowra's remote MCP server.",
+  "contextFileName": "llms.txt",
+  "mcpServers": {
+    "flowra": {
+      "httpUrl": "https://mcp.flowra.dev/mcp"
+    }
+  }
+}
